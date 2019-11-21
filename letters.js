@@ -10,3 +10,5 @@ class Letter {
          return char === this.letter ? (this.guessed = true, this.getLetter()) : this.getLetter()
     }
 }
+
+module.exports = Letter

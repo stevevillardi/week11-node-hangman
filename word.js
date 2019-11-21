@@ -1,8 +1,11 @@
-const Letter = require('./letters.js')
+const Letter = require('./letters')
 
 class Word {
-    constructor(array) {
-      this.word = array
+    constructor(string) {
+        this.word =[]
+        for(const char of string){
+            this.word.push(new Letter(char))
+        }
     }
     getWord(){
         let temp = "";
@@ -17,4 +20,14 @@ class Word {
         }
         return this.getWord()
     }
+    wordGuessed(){
+        for(let i = 0 ; i < this.word.length ; i++){
+            if(!this.word[i].guessed){
+                return false
+            }
+        }
+        return true
+    }
 }
+
+module.exports = Word
